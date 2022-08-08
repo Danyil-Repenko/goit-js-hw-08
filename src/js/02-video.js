@@ -13,9 +13,8 @@ function onVideoPlaying(data) {
 player.on('timeupdate', throttle(onVideoPlaying, 1000));
 
 function checkItem(timeStamp) {
-    if (timeStamp) {
-        const timeToSet = localStorage.getItem(timeStamp);
-        return JSON.parse(timeToSet);
+    if (localStorage.getItem(timeStamp)) {
+        return JSON.parse(localStorage.getItem(timeStamp));
     }
 
     return 0;
